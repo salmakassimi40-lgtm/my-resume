@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salma Kassimi - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-item::before {
+            content: '●';
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.2s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(5px);
+        }
+
+        .education-item h3, .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year, .experience-item .period {
+            color: #7f8c8d;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .language-item {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .language-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .skills {
+            display: grid;
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: background 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: #2980b9;
+        }
+
+        .activities {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .activities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .activities li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .activities li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .languages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skill-list {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .languages {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Salma Kassimi</h1>
+            <div class="contact-info">
+                <div class="contact-item">salmakassimi40@gmail.com</div>
+                <div class="contact-item">+212 066 590 4470</div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="left-column">
+                <section class="section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <h3>Bac Al Wiaam</h3>
+                        <div class="year">2020</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Multimédia Infographie</h3>
+                        <div class="year">Best Institut - 2020 à 2022</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Physique Mécanique</h3>
+                        <div class="year">Faculté des Sciences Ben Msik</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Économie Internationale</h3>
+                        <div class="year">Faculté des Sciences Économiques Ain Sbaa - 2024</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Certifications</h2>
+                    <div class="education-item">
+                        <h3>TCF B2</h3>
+                        <div class="year">Lycée Lyautey - 2023</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Anglais C1</h3>
+                        <div class="year">Korean Center</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Espagnol A1</h3>
+                        <div class="year">Coursera - 2025</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Français C1</h3>
+                        <div class="year">Orthodidacte - 2025</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Génération AI</h3>
+                        <div class="year">Orange Digital Center - 2025</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section">
+                    <h2>Expérience Professionnelle</h2>
+                    <div class="experience-item">
+                        <h3>Conseillère</h3>
+                        <div class="period">Konecta Marina - Octobre 2024 à Juin 2025</div>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Employée Polyvalente</h3>
+                        <div class="period">AZOR Jewelry - Juin 2025 à Juillet 2025</div>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Conseillère</h3>
+                        <div class="period">CMS Management - Octobre 2022 à Septembre 2024</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Langues</h2>
+                    <div class="languages">
+                        <div class="language-item">
+                            <div class="language-name">Arabe</div>
+                            <div class="language-level">Native</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Français</div>
+                            <div class="language-level">C1</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Anglais</div>
+                            <div class="language-level">C1</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Espagnol</div>
+                            <div class="language-level">A1</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Turc</div>
+                            <div class="language-level">A1</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="section full-width">
+                <h2>Compétences</h2>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3>Design</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Adobe Photoshop</span>
+                            <span class="skill-tag">Illustrator</span>
+                            <span class="skill-tag">InDesign</span>
+                            <span class="skill-tag">Canva</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Analyse de Données</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">SPSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Compétences Transversales</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Résolution de problèmes</span>
+                            <span class="skill-tag">Travail d'équipe</span>
+                            <span class="skill-tag">Gestion du temps</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section full-width">
+                <h2>Activités Extrascolaires</h2>
+                <div class="activities">
+                    <ul>
+                        <li>Membre de l'association Zéro Hunger</li>
+                        <li>Football Américain - Bulls Casablanca</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
